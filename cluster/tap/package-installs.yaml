@@ -49,12 +49,12 @@ stringData:
         integrations:
           github:
           - host: github.com
-        catalog:
-          locations:
-          - type: url
-            target: https://github.com/cdelashmutt-pivotal/central-gitops/blob/main/catalog/catalog-info.yaml
-            rules:
-            - allow: [Component]
+        # catalog:
+        #   locations:
+        #   - type: url
+        #     target: https://github.com/cdelashmutt-pivotal/central-gitops/blob/main/catalog/catalog-info.yaml
+        #     rules:
+        #     - allow: [Component]
         kubernetes:
           serviceLocatorMethod:
             type: 'multiTenant'
