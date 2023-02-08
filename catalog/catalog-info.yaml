@@ -7,6 +7,7 @@ metadata:
     'backstage.io/techdocs-ref': dir:.
 spec:
   targets:
+    - ./components/getting-started.yaml
     - ./components/tap-gui.yaml
     - ./groups/default-org.yaml
     - ./systems/tap-gui-system.yaml
