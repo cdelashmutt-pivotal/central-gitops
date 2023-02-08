@@ -1,8 +1,7 @@
-site_name: 'backstage components'
+site_name: 'Getting Started'
 
 nav:
-  - The Component: index.md
-  - Adding Documentation: add-docs.md
+  - Getting Started: index.md
 
 plugins:
   - techdocs-core
