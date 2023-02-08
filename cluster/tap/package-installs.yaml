@@ -31,7 +31,7 @@ stringData:
     ceip_policy_disclosed: true
 
     shared:
-      ingress_domain: "20-96-61-201.nip.io"
+      ingress_domain: "20-75-114-95.nip.io"
 
     tap_gui:
       service_type: ClusterIP
