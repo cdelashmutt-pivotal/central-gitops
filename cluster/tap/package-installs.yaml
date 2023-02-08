@@ -39,32 +39,34 @@ stringData:
       app_config:
         organization:
           name: VMware
-        # auth:
-        #   environment: development
-        #   providers:
-        #     github:
-        #       development:
-        #         clientId: (@= data.values.git_client_id @)
-        #         clientSecret: (@= data.values.git_client_secret @)
-        # integrations:
-        #   github:
-        #   - host: github.com
+        auth:
+          environment: development
+          providers:
+            github:
+              development:
+                clientId: (@= data.values.git_client_id @)
+                clientSecret: (@= data.values.git_client_secret @)
+        integrations:
+          github:
+          - host: github.com
         catalog:
           locations:
           - type: url
             target: https://github.com/cdelashmutt-pivotal/central-gitops/blob/main/catalog/catalog-info.yaml
+            rules:
+            - allow: [Component]
         kubernetes:
           serviceLocatorMethod:
             type: 'multiTenant'
-        # techdocs:
-        #   builder: external
-        #   publisher:
-        #     azureBlobStorage:
-        #       containerName: example
-        #       credentials:
-        #         accountKey: (@= data.values.azure_storage_account_key @)
-        #         accountName: nvtechdocs
-        #     type: azureBlobStorage
+        techdocs:
+          builder: external
+          publisher:
+            azureBlobStorage:
+              containerName: example
+              credentials:
+                accountKey: (@= data.values.azure_storage_account_key @)
+                accountName: nvtechdocs
+            type: azureBlobStorage
 
     appliveview:
       ingressEnabled: true
