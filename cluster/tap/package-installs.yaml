@@ -38,17 +38,17 @@ stringData:
       ingressEnabled: true
       app_config:
         organization:
-          name: vmware
-        auth:
-          environment: development
-          providers:
-            github:
-              development:
-                clientId: (@= data.values.git_client_id @)
-                clientSecret: (@= data.values.git_client_secret @)
-        integrations:
-          github:
-          - host: github.com
+          name: VMware
+        # auth:
+        #   environment: development
+        #   providers:
+        #     github:
+        #       development:
+        #         clientId: (@= data.values.git_client_id @)
+        #         clientSecret: (@= data.values.git_client_secret @)
+        # integrations:
+        #   github:
+        #   - host: github.com
         catalog:
           locations:
           - type: url
@@ -56,15 +56,15 @@ stringData:
         kubernetes:
           serviceLocatorMethod:
             type: 'multiTenant'
-        techdocs:
-          builder: external
-          publisher:
-            azureBlobStorage:
-              containerName: example
-              credentials:
-                accountKey: (@= data.values.azure_storage_account_key @)
-                accountName: nvtechdocs
-            type: azureBlobStorage
+        # techdocs:
+        #   builder: external
+        #   publisher:
+        #     azureBlobStorage:
+        #       containerName: example
+        #       credentials:
+        #         accountKey: (@= data.values.azure_storage_account_key @)
+        #         accountName: nvtechdocs
+        #     type: azureBlobStorage
 
     appliveview:
       ingressEnabled: true
