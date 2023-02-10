@@ -36,7 +36,7 @@ stringData:
         - --policy=sync
         - --registry=txt
         - --domain-filter=(@= data.values.domain @)
-        - --azure-resource-group=(@= data.values.azure.resource_group @)
+        - --azure-resource-group=(@= data.values.azure.external_dns.resource_group @)
         volumeMounts:
         - name: azure-config-file
           mountPath: /etc/kubernetes
@@ -65,7 +65,7 @@ stringData:
         {
           "tenantId": "(@= data.values.azure.tenant_id @)",
           "subscriptionId": "(@= data.values.azure.subscription_id @)",
-          "resourceGroup": "(@= data.values.azure.resource_group @)",
+          "resourceGroup": "(@= data.values.azure.external_dns.resource_group @)",
           "aadClientId": "(@= data.values.azure.external_dns.client_id @)",
           "aadClientSecret": "(@= data.values.azure.external_dns.client_secret @)"
         }
