@@ -5,6 +5,7 @@ metadata:
   namespace: tap-accelerators
   annotations:
     kapp.k14s.io/change-rule.serviceaccount-del: "delete before deleting tap-accelerators-serviceaccount"
+    kapp.k14s.io/change-rule.external-dns-upsert: "upsert after upserting tap"
 spec:
   serviceAccountName: tap-accelerators
   fetch:
