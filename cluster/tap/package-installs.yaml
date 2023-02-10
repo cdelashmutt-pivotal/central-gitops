@@ -6,7 +6,8 @@ metadata:
   annotations:
     kapp.k14s.io/change-group: tap
     kapp.k14s.io/change-rule.serviceaccount-del: "delete before deleting tap-serviceaccount"
-    kapp.k14s.io/change-rule.serviceaccount-del: "delete before deleting external-dns"
+    kapp.k14s.io/change-rule.external-dns-del: "delete before deleting external-dns"
+    kapp.k14s.io/change-rule.external-dns-upsert: "upsert after upserting external-dns"
   name: tap
   namespace: tap-install
 spec:
