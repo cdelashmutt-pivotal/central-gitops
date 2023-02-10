@@ -37,7 +37,7 @@ stringData:
       envoy:
         service:
           annotations:
-            external-dns.alpha.kubernetes.io/hostname=*.(@= data.values.domain @).
+            external-dns.alpha.kubernetes.io/hostname: *.(@= data.values.domain @).
 
     tap_gui:
       service_type: ClusterIP
