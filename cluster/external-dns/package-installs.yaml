@@ -38,17 +38,14 @@ stringData:
         - --txt-prefix=externaldns-
         - --domain-filter=(@= data.values.domain @)
         - --azure-resource-group=(@= data.values.azure.resource_group @)
-        env:
-        - name: AWS_ACCESS_KEY_ID
-          valueFrom:
-            secretKeyRef:
-              name: route53-credentials
-              key: aws_access_key_id
-        - name: AWS_SECRET_ACCESS_KEY
-          valueFrom:
-            secretKeyRef:
-              name: route53-credentials
-              key: aws_secret_access_key
+        volumeMounts:
+        - name: azure-config-file
+          mountPath: /etc/kubernetes
+          readOnly: true
+        volumes:
+        - name: azure-config-file
+          secret:
+            secretName: external-dns-credentials
 
 ---
 apiVersion: v1
@@ -62,10 +59,13 @@ stringData:
     apiVersion: v1
     kind: Secret
     metadata:
-      name: route53-credentials
+      name: external-dns-credentials
       namespace: tanzu-system-service-discovery
     stringData:
-      tenantId: (@= data.values.azure.tenant_id @)
-      subscriptionId: (@= data.values.azure.subscription_id @)
-      resourceGroup: (@= data.values.azure.resource_group @)
-      useManagedIdentityExtension: "true"
+      azure.json: |
+        {
+          tenantId: (@= data.values.azure.tenant_id @)
+          subscriptionId: (@= data.values.azure.subscription_id @)
+          resourceGroup: (@= data.values.azure.resource_group @)
+          useManagedIdentityExtension: "true"
+        }
