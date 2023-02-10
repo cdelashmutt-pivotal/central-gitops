@@ -68,4 +68,4 @@ stringData:
       tenantId: (@= data.values.azure.tenant_id @)
       subscriptionId: (@= data.values.azure.subscription_id @)
       resourceGroup: (@= data.values.azure.resource_group @)
-      useManagedIdentityExtension: true
+      useManagedIdentityExtension: "true"
