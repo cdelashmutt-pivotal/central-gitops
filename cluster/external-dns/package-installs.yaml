@@ -64,8 +64,9 @@ stringData:
     stringData:
       azure.json: |
         {
-          tenantId: "(@= data.values.azure.tenant_id @)",
-          subscriptionId: "(@= data.values.azure.subscription_id @)",
-          resourceGroup: "(@= data.values.azure.resource_group @)",
-          useManagedIdentityExtension: true
+          "tenantId": "(@= data.values.azure.tenant_id @)",
+          "subscriptionId": "(@= data.values.azure.subscription_id @)",
+          "resourceGroup": "(@= data.values.azure.resource_group @)",
+          "aadClientId": "(@= data.values.azure.external_dns_client_id @)",
+          "aadClientSecret": "(@= data.values.azure.external_dns_client_secret @)"
         }
